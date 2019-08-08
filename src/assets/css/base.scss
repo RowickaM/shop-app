@@ -1,0 +1,90 @@
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+body, h1, h2, h3, h4, h5, h6{
+
+  font-family: "Montserrat", sans-serif;
+
+}
+a{
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+p.text-large{
+  font-size: 64px;
+  line-height: 1.5;
+}
+p.text-smallest{
+  font-size: 36px;
+}
+
+.btn{
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-black {
+  color: #fff;
+  background-color: #000;
+
+  &:hover {
+    color: #000;
+    background-color: #ccc;
+  }
+}
+.btn-padding-large{
+  padding: 12px 24px;
+}
+
+.text-large{
+  font-size: 18px;
+}
+
+.text-grey{
+  color: #757575;
+}
+
+.padding-64{
+  padding: 64px 0;
+}
+
+.nav-item{
+  width: 100%;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0;
+}
