@@ -1,13 +1,11 @@
 <template>
-<div id="header">
-    <div>
-        <h3>Jeans</h3>
-    </div>
-    <div class="header-short">
-        <div><i class="fas fa-shopping-cart"></i> </div>
-        <div> <input type="text" hidden> <i class="fas fa-search"></i></div>
-    </div>
-</div>
+    <header class="w3-container w3-xlarge">
+        <p class="w3-left">Jeans</p>
+        <p class="w3-right">
+            i <i class="fa fa-shopping-cart w3-margin-right"></i>
+            <i class="fa fa-search"></i>
+        </p>
+    </header>
 
 </template>
 

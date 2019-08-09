@@ -1,33 +1,30 @@
 <template>
-    <div id="nav">
-        <div>
-            <h4>LOGO</h4>
+    <nav id="nav" class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px">
+        <div class="w3-container w3-display-container w3-padding-16">
+            <i class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+            <h3 class="w3-wide"><b>LOGO</b></h3>
         </div>
-        <nav class="padding-64 text-large">
-            <ul>
-                <li class="nav-item">Shirts</li>
-                <li class="nav-item">Dresses</li>
-                <li class="nav-item">Jeans
-                    <ul>
-                        <li class="nav-item">Skinny</li>
-                        <li class="nav-item">Relaxed</li>
-                        <li class="nav-item">Bootcut</li>
-                        <li class="nav-item">Straight</li>
-                    </ul>
-                </li>
-                <li class="nav-item">Jacket</li>
-                <li class="nav-item">Gymwear</li>
-                <li class="nav-item">Blazers</li>
-                <li class="nav-item">Shoes</li>
-            </ul>
-
-            <ul>
-                <li>Contact</li>
-                <li>Newsletter</li>
-                <li>Subscribe</li>
-            </ul>
-        </nav>
-    </div>
+        <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+            <a href="#" class="w3-bar-item w3-button">Shirts</a>
+            <a href="#" class="w3-bar-item w3-button">Dresses</a>
+            <a class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+                Jeans <i class="fa fa-caret-down"></i>
+            </a>
+            <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-show">
+                <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
+                <a href="#" class="w3-bar-item w3-button">Relaxed</a>
+                <a href="#" class="w3-bar-item w3-button">Bootcut</a>
+                <a href="#" class="w3-bar-item w3-button">Straight</a>
+            </div>
+            <a href="#" class="w3-bar-item w3-button">Jackets</a>
+            <a href="#" class="w3-bar-item w3-button">Gymwear</a>
+            <a href="#" class="w3-bar-item w3-button">Blazers</a>
+            <a href="#" class="w3-bar-item w3-button">Shoes</a>
+        </div>
+        <a class="w3-bar-item w3-button w3-padding normal" href="#" >Contact</a>
+        <a class="w3-bar-item w3-button w3-padding normal" href="#" >Newsletter</a>
+        <a class="w3-bar-item w3-button w3-padding normal" href="#" >Subscribe</a>
+    </nav>
 </template>
 
 <script>
@@ -40,13 +37,9 @@
     @import "./../css/base";
 
     #nav {
+        color:#757575;
         width: 250px;
         z-index: 3;
-        overflow: auto;
         height: 100%;
-
-        nav ul{
-            padding-left: 0;
-        }
     }
 </style>

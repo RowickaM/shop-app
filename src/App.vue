@@ -19,6 +19,7 @@
   @import './assets/css/base.scss';
     body {
         margin: 0;
+        line-height: 1.5;
     }
 
     #app {

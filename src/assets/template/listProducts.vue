@@ -1,21 +1,8 @@
 <template>
-    <div class="w3-main" >
-        <!-- Top header -->
-        <Header/>
-
-        <!-- Image header -->
-        <div class="w3-display-container w3-container">
-            <div style="width:918px; height: 612px; background: #3a3a3a"></div>
-            <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
-                <h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
-                <h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
-                <h1 class="w3-hide-small">COLLECTION 2016</h1>
-                <p><a href="#jeans" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
-            </div>
-        </div>
-
-        <div class="w3-container w3-text-grey" id="jeans">
-            <p>{{products.length}} items</p>
+    <div class="w3-main">
+        <h2>Explore our {{nameCategory}} collection</h2>
+        <div>
+            <p class="w3-small">{{products.length}} items</p>
         </div>
         <div class="products">
             <ProductMini v-for="product in products"
@@ -27,11 +14,9 @@
 
 <script>
     import ProductMini from "@/assets/template/product-mini";
-    import Header from "@/assets/template/header";
-
     export default {
-        name: "context",
-        components: {Header, ProductMini},
+        name: "listProducts",
+        components: {ProductMini},
         data() {
             return {
                 products: [
@@ -83,38 +68,43 @@
                         price: 24.99,
                         annotation: ''
                     },
-                ]
+                    {
+                        id: 9,
+                        name: 'Ripped Skinny Jeans',
+                        price: 24.99,
+                        annotation: ''
+                    },
+                    {
+                        id: 10,
+                        name: 'Ripped Skinny Jeans',
+                        price: 24.99,
+                        annotation: ''
+                    },
+                    {
+                        id: 11,
+                        name: 'Ripped Skinny Jeans',
+                        price: 24.99,
+                        annotation: ''
+                    },
+                    {
+                        id: 12,
+                        name: 'Ripped Skinny Jeans',
+                        price: 24.99,
+                        annotation: ''
+                    },
+                    {
+                        id: 13,
+                        name: 'Ripped Skinny Jeans',
+                        price: 24.99,
+                        annotation: ''
+                    },
+                ],
+                nameCategory:'shirts'
             }
         }
     }
 </script>
 
-<style scoped lang="scss">
-    @import './../css/base';
+<style scoped>
 
-    .wrapper {
-        position: relative;
-
-        .text-top-left-wrapper {
-            padding: 24px 48px;
-            position: absolute;
-            top: 0;
-            left: 0;
-
-        }
-
-        #img {
-            width: 918px;
-            height: 612px;
-            background-color: #2c3e50;
-        }
-
-        .text-white {
-            color: #fff;
-
-            p {
-                margin: 10px 0;
-            }
-        }
-    }
 </style>

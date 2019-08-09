@@ -1,25 +1,25 @@
 h1 {
-  font-size: 2.5rem;
+  font-size: 36px
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 30px
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: 24px
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 20px
 }
 
 h5 {
-  font-size: 1.25rem;
+  font-size: 18px
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: 16px
 }
 body, h1, h2, h3, h4, h5, h6{
 
@@ -79,7 +79,8 @@ p.text-smallest{
 }
 
 .nav-item{
-  width: 100%;
+  //position: relative;
+  //width: 100%;
   display: block;
   padding: 8px 16px;
   text-align: left;
@@ -87,4 +88,24 @@ p.text-smallest{
   white-space: normal;
   float: none;
   outline: 0;
+  & li:hover, &:hover {
+    color: #000;
+    background-color: #ccc;
+  }
+}
+.sub-menu{
+  margin-left: 30px;
+  width: 70%;
+  & li:hover{
+    color: #000;
+    background-color: #ccc;
+  }
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  width: 920px;
+  margin-left: 16px;
+  justify-content: space-between;
 }
