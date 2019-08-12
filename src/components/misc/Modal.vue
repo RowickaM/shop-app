@@ -3,21 +3,26 @@
     <div class="blur"></div>
     <div class="modal">
 
-        <i class="fas fa-times" ></i>
+        <i class="fas fa-times" v-on:click="closeModal"></i>
         <p class="w3-xxlarge">Great choise!</p>
         <p class="w3-medium">You have added 1 product to your cart.</p>
         <div>
-            <button class="w3-button w3-red w3-padding-large w3-large">back to store</button>
-            <button class="w3-button w3-black w3-padding-large w3-large" >see your shopping cart <i class="fas fa-arrow-right"></i></button>
+            <button class="w3-button w3-red w3-padding-large w3-large" v-on:click="closeModal">back to store</button>
+            <router-link :to="{name:'cart'}"><button class="w3-button w3-black w3-padding-large w3-large" v-on:click="closeModal" >see your shopping cart <i class="fas fa-arrow-right"></i></button></router-link>
         </div>
     </div>
     </div>
 </template>
 
 <script>
+    import {mapGetters, mapActions} from 'vuex';
     export default {
         name: "Modal",
         methods:{
+            ...mapActions(['changeModalState']),
+            closeModal(){
+                this.changeModalState();
+            }
         }
     }
 </script>
@@ -29,7 +34,7 @@
 @import "./../../assets/css/text";
 
 .blur{
-    position: absolute;
+    position: fixed;
     z-index: 4;
     height: 100vh;
     width: 100vw;
@@ -44,7 +49,7 @@
         background: #fff;
         text-align: center;
         padding-top: 50px;
-        position: absolute;
+        position: fixed;
         z-index: 5;
         top:25%;
         left: 25%;
@@ -66,6 +71,7 @@
         }
         div{
             button{
+                text-transform: uppercase;
                 margin-left: 15px;
             }
         }

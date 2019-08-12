@@ -2,12 +2,12 @@
     <div class="product">
         <div id="img">
             <img src="#"/>
-            <button class="button w3-button w3-black" v-on:click="addToCart">Buy now <i class="fa fa-shopping-cart w3-margin-right"></i></button>
+            <div class="button w3-button w3-black" v-on:click="addToCart">Buy now <i class="fa fa-shopping-cart w3-margin-right"></i></div>
         </div>
         <span v-if="product.annotation !== ''">{{product.annotation}}</span>
         <div class="info">
             <p>{{product.product_name}}</p>
-            <p><b>${{product.price}}</b></p>
+            <p><b>{{product.price}}</b></p>
         </div>
     </div>
 </template>
@@ -20,9 +20,9 @@
         methods: {
             ...mapActions(['addProductToCart','changeModalState']),
             addToCart() {
-                console.log('jestem');
-                // this.changeModalState();
-                // this.addProductToCart({product:this.product});
+                // console.log('jestem');
+                this.changeModalState();
+                this.addProductToCart({product:this.product});
             }
         },
     }
@@ -39,8 +39,8 @@
         color: white;
         visibility: hidden ; /*todo czemu się nie chowa?*/
         position: absolute;
-        top: 40%;
-        left: 16%;
+        top: 43%;
+        left: 23%;
         padding-right: 0;
     }
 

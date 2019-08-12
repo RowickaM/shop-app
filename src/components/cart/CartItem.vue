@@ -2,23 +2,35 @@
     <div class="product">
         <div class="pc">{{product.count}}<span></span></div>
         <div  class="info-product">
-            <div class="pic">img</div>
+            <div class="pic"><img :src="product.product.image"/></div>
             <div class="info">
-                <div class="name"><h3>{{product.name}}</h3></div>
-                <div class="price-pc"><h3>${{product.price}}/pc.</h3></div>
-                <div class="price"><h3>${{product.price * product.count}}</h3></div>
+                <div class="name"><h3>{{product.product.product_name}}</h3></div>
+                <div class="price-pc"><h3>{{product.product.price}}/pc.</h3></div>
+                <div class="price"><h3>${{total}}</h3></div>
             </div>
         </div>
         <div class="remove">
-            <button class="w3-button w3-black">REMOVE</button>
+            <button class="w3-button w3-black" v-on:click="removeProduct">REMOVE</button>
         </div>
     </div>
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
     export default {
         name: "cartItem",
-        props: ['product']
+        props: ['product'],
+        computed:{
+            total() {
+               return this.product.product.price.substr(1) * this.product.count;
+            }
+        },
+        methods:{
+            ...mapActions(['removeFromCart']),
+            removeProduct(){
+                this.removeFromCart({product:this.product});
+            }
+        }
     }
 </script>
 
@@ -46,10 +58,9 @@
         }
         .info-product {
             display: flex;
-            .pic{
-                width:120px;
-                height: 150px;
-                background: #844d48 ;
+            .pic img{
+                max-width:120px;
+                max-height: 150px;
             }
             .info {
                 width: 550px;

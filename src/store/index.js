@@ -1,10 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
+import temp from './temp';
+
 
 Vue.use(Vuex);
 
 const productsQuery = axios.get('http://www.mocky.io/v2/5ab0d1882e0000e60ae8b7a6');
+
 
 export default new Vuex.Store({
     namespace: true,
@@ -26,28 +29,39 @@ export default new Vuex.Store({
             return state.cart;
         },
         getCartCount(state){
-            return state.cart.length;
+            let couter=0;
+            state.cart.forEach(item=>couter+= item.count);
+            return couter;
         }
     },
     actions: {
         changeModalState(context) {
-            context.commit('setModalState', {state: !context.getter.getModalState});
+            context.commit('setModalState', {state: !context.getters.getModalState});
         },
 
         fetchProducts(context) {
-            if (context.state.products.length === 0)
-            productsQuery.then(json => {
-                json.data.forEach(item => {
-                    context.commit('addProduct', {product: item});
+            if (context.state.products.length === 0) {
+                productsQuery.then(json => {
+                    json.data.forEach(item => {
+                        context.commit('addProduct', {product: item});
+                    })
                 })
-            })
+            }
         },
 
         addProductToCart(context, payload){
             context.commit('addToCart',{product:payload.product});
         },
+        setTempCart(context){
+            let tab = temp;
+            context.commit('setTempCart',{tab:tab});
+        }
     },
     mutations: {
+        setTempCart(state, payload){
+            state.cart = payload.temp;
+        },
+
         setModalState(state, payload) {
             state.modal = payload.state;
         },
@@ -57,12 +71,23 @@ export default new Vuex.Store({
         },
 
         addToCart(state, payload){
-            state.cart.push(payload.product);
+            let position = state.cart.findIndex(item => payload.product.id === item.product.id);
+
+            if (position===-1) {
+                state.cart.push({product: payload.product, count: 1});
+            }
+            else {
+                state.cart[position].count++;
+            }
         },
 
         removeFromCart(state, payload){
             let position = state.cart.findIndex(item => payload.product.id === item.id);
-            state.cart.splice(position, 1);
+            console.log(position);
+            if(state.cart[position].count === 1)
+                state.cart.splice(position, 1);
+            else
+                state.cart[position].count--;
         }
 
     }

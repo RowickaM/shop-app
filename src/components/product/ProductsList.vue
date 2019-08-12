@@ -13,8 +13,8 @@
 </template>
 
 <script>
-    import ProductMini from "@/assets/template/product-mini";
-    import {mapGetters} from "vuex";
+    import ProductMini from "@/components/product/ProductMini";
+    import {mapGetters, mapActions} from "vuex";
     export default {
         name: "ProductsList",
         components: {ProductMini},
@@ -23,11 +23,15 @@
             return {
             }
         },
-        computed:{
-            ...mapGetters(['getProducts'])
+        computed: {
+            ...mapGetters(['getProducts', 'getProducts'])
+        },
+        methods:{
+            ...mapActions(['fetchProducts'])
         },
         created() {
-
+            // if (this.getProducts.length === 0)
+            //     this.fetchProducts();
         }
     }
 </script>

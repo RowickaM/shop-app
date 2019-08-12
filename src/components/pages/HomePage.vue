@@ -31,7 +31,7 @@
             ...mapActions(['fetchProducts'])
         },
         created() {
-            // if (this.getProducts.length === 0)
+            if (!this.getProducts)
                 this.fetchProducts();
         }
     }
