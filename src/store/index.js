@@ -14,7 +14,7 @@ export default new Vuex.Store({
         products: [],//spis wszystkich produktów
 
     },
-    getter: {
+    getters: {
         getModalState(context) {
             return context.state.modal;
         },
