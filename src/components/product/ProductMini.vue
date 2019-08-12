@@ -24,10 +24,10 @@
     @import "./../../assets/css/text.scss";
     @import "./../../assets/css/space.scss";
 
-    .button {
+    .product .button {
         background: black;
         color: white;
-        visibility: visible;
+        visibility: hidden ; /*czemu się nie chowa*/
         position: absolute;
         top: 40%;
         left: 16%;

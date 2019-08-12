@@ -27,8 +27,6 @@
                 isModalShow:false
             }
         },
-        computed:{
-        },
     }
 </script>
 
