@@ -1,4 +1,4 @@
-export default cart = [
+export default [
     {
         product: {
             'id': 1,

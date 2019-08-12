@@ -20,7 +20,11 @@
         name: "Cart",
         components: {CartItem, Header},
         computed:{
-            ...mapGetters(['getCart']),
+            ...mapGetters(['getCart','setTempCart','fetchProducts']),
+        },
+        created(){
+            this.fetchProducts();
+            this.setTempCart();
         }
     }
 </script>
