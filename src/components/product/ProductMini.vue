@@ -2,19 +2,29 @@
     <div class="product">
         <div id="img">
             <img src="#"/>
-            <div class="button w3-button w3-black">Buy now <i class="fa fa-shopping-cart w3-margin-right"></i></div>
+            <button class="button w3-button w3-black" v-on:click="addToCart">Buy now <i class="fa fa-shopping-cart w3-margin-right"></i></button>
         </div>
         <span v-if="product.annotation !== ''">{{product.annotation}}</span>
         <div class="info">
-            <p>{{product.name}}</p>
+            <p>{{product.product_name}}</p>
             <p><b>${{product.price}}</b></p>
         </div>
     </div>
 </template>
 
 <script>
+    import {mapActions} from 'vuex';
     export default {
-        name: "ProductMini"
+        name: "ProductMini",
+        props:['product'],
+        methods: {
+            ...mapActions(['addProductToCart','changeModalState']),
+            addToCart() {
+                console.log('jestem');
+                // this.changeModalState();
+                // this.addProductToCart({product:this.product});
+            }
+        },
     }
 </script>
 
@@ -27,7 +37,7 @@
     .product .button {
         background: black;
         color: white;
-        visibility: hidden ; /*czemu się nie chowa*/
+        visibility: hidden ; /*todo czemu się nie chowa?*/
         position: absolute;
         top: 40%;
         left: 16%;

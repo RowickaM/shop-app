@@ -2,10 +2,10 @@
     <div class="w3-main">
         <h1 v-if="nameCategory" class="w3-margin-left">Explore our {{nameCategory.toLowerCase()}} collection</h1>
         <div>
-            <p class="w3-small w3-text-grey w3-margin-left">{{products.length}} items</p>
+            <p class="w3-small w3-text-grey w3-margin-left">{{getProducts.length}} items</p>
         </div>
         <div class="products">
-            <ProductMini v-for="product in products"
+            <ProductMini v-for="product in getProducts"
                          :key="product.id"
                          :product="product"/>
         </div>
@@ -14,93 +14,20 @@
 
 <script>
     import ProductMini from "@/assets/template/product-mini";
+    import {mapGetters} from "vuex";
     export default {
         name: "ProductsList",
         components: {ProductMini},
         props:['nameCategory'],
         data() {
             return {
-                products: [
-                    {
-                        id: 1,
-                        name: 'Ripped Skinny Jeans',
-                        price: 24.99,
-                        annotation: ''
-                    },
-                    {
-                        id: 2,
-                        name: 'Mega Ripped Jeans',
-                        price: 19.99,
-                        annotation: 'New'
-                    },
-                    {
-                        id: 3,
-                        name: 'Washed Skinny Jeans',
-                        price: 20.50,
-                        annotation: ''
-                    },
-                    {
-                        id: 4,
-                        name: 'Vintage Skinny Jeans',
-                        price: 14.99,
-                        annotation: ''
-                    },
-                    {
-                        id: 5,
-                        name: 'Mega Ripped Jeans',
-                        price: 19.99,
-                        annotation: ''
-                    },
-                    {
-                        id: 6,
-                        name: 'Washed Skinny  Jeans',
-                        price: 20.50,
-                        annotation: ''
-                    },
-                    {
-                        id: 7,
-                        name: 'Vintage Skinny Jeans',
-                        price: 14.99,
-                        annotation: 'Sale'
-                    },
-                    {
-                        id: 8,
-                        name: 'Ripped Skinny Jeans',
-                        price: 24.99,
-                        annotation: ''
-                    },
-                    {
-                        id: 9,
-                        name: 'Ripped Skinny Jeans',
-                        price: 24.99,
-                        annotation: ''
-                    },
-                    {
-                        id: 10,
-                        name: 'Ripped Skinny Jeans',
-                        price: 24.99,
-                        annotation: ''
-                    },
-                    {
-                        id: 11,
-                        name: 'Ripped Skinny Jeans',
-                        price: 24.99,
-                        annotation: ''
-                    },
-                    {
-                        id: 12,
-                        name: 'Ripped Skinny Jeans',
-                        price: 24.99,
-                        annotation: ''
-                    },
-                    {
-                        id: 13,
-                        name: 'Ripped Skinny Jeans',
-                        price: 24.99,
-                        annotation: ''
-                    },
-                ],
             }
+        },
+        computed:{
+            ...mapGetters(['getProducts'])
+        },
+        created() {
+
         }
     }
 </script>

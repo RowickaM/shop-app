@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="site">
             <Navigation/>
-<!--        <Modal/>-->
+        <Modal v-if="getModalState"/>
         <div style="margin-left: 250px">
            <router-view></router-view>
             <Footer />
@@ -14,6 +14,7 @@
   import Navigation from "@/components/misc/Navigation";
   import Footer from "@/components/misc/Footer";
   import Modal from "@/components/misc/Modal";
+  import {mapGetters} from 'vuex';
 
     export default {
         name: 'app',
@@ -22,10 +23,8 @@
             Footer,
             Navigation,
         },
-        data(){
-            return{
-                isModalShow:false
-            }
+        computed:{
+            ...mapGetters(['getModalState'])
         },
     }
 </script>

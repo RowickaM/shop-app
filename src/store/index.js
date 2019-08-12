@@ -15,28 +15,37 @@ export default new Vuex.Store({
 
     },
     getters: {
-        getModalState(context) {
-            return context.state.modal;
+        getModalState(state) {
+            return state.modal;
         },
-        getProducts(context) {
-            if (context.state.products.length !== 0)
-                return context.state.products;
-            else
-                context.dispatch('fetchProducts');
-                }
+        getProducts(state) {
+            if (state.products.length !== 0)
+                return state.products;
+        },
+        getCart(state){
+            return state.cart;
+        },
+        getCartCount(state){
+            return state.cart.length;
+        }
     },
     actions: {
-        setModalState(context) {
+        changeModalState(context) {
             context.commit('setModalState', {state: !context.getter.getModalState});
         },
 
         fetchProducts(context) {
+            if (context.state.products.length === 0)
             productsQuery.then(json => {
                 json.data.forEach(item => {
                     context.commit('addProduct', {product: item});
                 })
             })
-        }
+        },
+
+        addProductToCart(context, payload){
+            context.commit('addToCart',{product:payload.product});
+        },
     },
     mutations: {
         setModalState(state, payload) {
@@ -45,7 +54,17 @@ export default new Vuex.Store({
 
         addProduct(state, payload) {
             state.products.push(payload.product);
+        },
+
+        addToCart(state, payload){
+            state.cart.push(payload.product);
+        },
+
+        removeFromCart(state, payload){
+            let position = state.cart.findIndex(item => payload.product.id === item.id);
+            state.cart.splice(position, 1);
         }
+
     }
 
 });

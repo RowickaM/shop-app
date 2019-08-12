@@ -18,12 +18,12 @@ const router = new Router({
             component: PaymentPage
         },
         {
-            path: '/category',
+            path: '/:name',
             name: 'category',
             component: CategoryPage
         },
         {
-            path: '/category/product',
+            path: '/:name/:id',
             name: 'product',
             component: ProductPage
         },
