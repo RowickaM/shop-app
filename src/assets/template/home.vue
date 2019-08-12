@@ -2,7 +2,8 @@
     <div class="site">
         <Nav/>
         <div class="w3-main" style="margin-left:250px;">
-<!--<ListProducts />-->
+<!--            <Context/>-->
+<!--            <ListProducts />-->
             <Cart />
 
             <Footer/>
@@ -11,7 +12,6 @@
 </template>
 
 <script>
-    import Header from "@/assets/template/header";
     import Nav from "@/assets/template/nav";
     import Footer from "@/assets/template/footer";
     import Context from "@/assets/template/context";
@@ -20,11 +20,16 @@
 
     export default {
         name: "home",
-        components: {Cart, ListProducts, Context, Footer, Nav, Header}
+        components: {Cart, ListProducts, Context, Footer, Nav}
     }
 </script>
 
 <style scoped lang="scss">
+    @import "./../css/base.scss";
+    @import "./../css/positions.scss";
+    @import "./../css/text.scss";
+    @import "./../css/space.scss";
+
     .site{
         display: flex;
         width: 80%;

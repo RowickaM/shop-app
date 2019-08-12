@@ -1,14 +1,11 @@
 <template>
     <div class="w3-main" >
-        <!-- Top header -->
-        <Header/>
-
+<Header />
         <!-- Image header -->
         <div class="w3-display-container w3-container">
             <div style="width:918px; height: 612px; background: #3a3a3a"></div>
             <div class="w3-display-topleft w3-text-white" style="padding:24px 48px">
                 <h1 class="w3-jumbo w3-hide-small">New arrivals</h1>
-                <h1 class="w3-hide-large w3-hide-medium">New arrivals</h1>
                 <h1 class="w3-hide-small">COLLECTION 2016</h1>
                 <p><a href="#jeans" class="w3-button w3-black w3-padding-large w3-large">SHOP NOW</a></p>
             </div>
@@ -90,31 +87,41 @@
 </script>
 
 <style scoped lang="scss">
-    @import './../css/base';
+    @import "./../css/base.scss";
+    @import "./../css/positions.scss";
+    @import "./../css/text.scss";
+    @import "./../css/space.scss";
 
-    .wrapper {
-        position: relative;
+    a.w3-button{
 
-        .text-top-left-wrapper {
-            padding: 24px 48px;
-            position: absolute;
-            top: 0;
-            left: 0;
-
-        }
-
-        #img {
-            width: 918px;
-            height: 612px;
-            background-color: #2c3e50;
-        }
-
-        .text-white {
-            color: #fff;
-
-            p {
-                margin: 10px 0;
-            }
-        }
+        letter-spacing: 2px;
+        font-size: 19px !important;
+        font-weight: normal;
     }
+
+    /*.wrapper {*/
+    /*    position: relative;*/
+
+    /*    .text-top-left-wrapper {*/
+    /*        padding: 24px 48px;*/
+    /*        position: absolute;*/
+    /*        top: 0;*/
+    /*        left: 0;*/
+
+    /*    }*/
+
+    /*    #img {*/
+    /*        width: 918px;*/
+    /*        height: 612px;*/
+    /*        background-color: #2c3e50;*/
+    /*    }*/
+
+    /*    .text-white {*/
+    /*        color: #fff;*/
+
+    /*        p {*/
+    /*            margin: 10px 0;*/
+    /*        }*/
+    /*    }*/
+    /*}*/
 </style>

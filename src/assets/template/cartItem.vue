@@ -23,6 +23,10 @@
 </script>
 
 <style scoped lang="scss">
+    @import "./../css/base.scss";
+    @import "./../css/positions.scss";
+    @import "./../css/text.scss";
+    @import "./../css/space.scss";
     .product{
         margin: 15px auto;
         display: flex;

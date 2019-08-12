@@ -1,17 +1,34 @@
 <template>
-    <div id="app">
-      <home />
+    <div id="app" class="site">
+            <Navigation/>
+<!--        <Modal/>-->
+        <div style="margin-left: 250px">
+           <router-view></router-view>
+            <Footer />
+        </div>
+
     </div>
 </template>
 
 <script>
-  import home from './assets/template/home';
+  import Navigation from "@/components/misc/Navigation";
+  import Footer from "@/components/misc/Footer";
+  import Modal from "@/components/misc/Modal";
 
     export default {
         name: 'app',
         components: {
-          home
-        }
+            Modal,
+            Footer,
+            Navigation,
+        },
+        data(){
+            return{
+                isModalShow:false
+            }
+        },
+        computed:{
+        },
     }
 </script>
 
@@ -28,5 +45,18 @@
         -moz-osx-font-smoothing: grayscale;
     }
 
+  .site{
+      /*display: flex;*/
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+    .buttons{
+        display: flex;
+        padding: 0 10px;
+        justify-content: space-between;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+    }
 
 </style>

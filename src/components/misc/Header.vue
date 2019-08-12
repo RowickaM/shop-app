@@ -1,6 +1,6 @@
 <template>
     <header class="w3-container w3-xlarge">
-        <p class="w3-left">Jeans</p>
+        <p class="w3-left">{{header}}</p>
         <p class="w3-right">
             i <i class="fa fa-shopping-cart w3-margin-right"></i>
             <i class="fa fa-search"></i>
@@ -11,11 +11,16 @@
 
 <script>
     export default {
-        name: "header"
+        name: "Header",
+        props:['header']
     }
 </script>
 
 <style scoped lang="scss">
+    @import "./../../assets/css/base.scss";
+    @import "./../../assets/css/positions.scss";
+    @import "./../../assets/css/text.scss";
+    @import "./../../assets/css/space.scss";
     #header{
         display: flex;
         align-items: baseline;

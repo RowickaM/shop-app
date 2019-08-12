@@ -1,0 +1,71 @@
+.w3-top, .w3-bottom {
+  position: fixed;
+  width: 100%;
+  z-index: 1
+}
+
+.w3-top {
+  top: 0
+}
+.w3-topbar {
+  border-top: 6px solid #ccc !important
+}
+.w3-container, .w3-panel {
+  padding: 0.01em 16px
+}
+.w3-container:after, .w3-container:before, .w3-panel:after, .w3-panel:before, .w3-row:after, .w3-row:before, .w3-row-padding:after, .w3-row-padding:before,
+.w3-cell-row:before, .w3-cell-row:after, .w3-clear:after, .w3-clear:before, .w3-bar:before, .w3-bar:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+
+.w3-tooltip, .w3-display-container {
+  position: relative
+}
+
+.w3-display-container:hover .w3-display-hover {
+  display: block
+}
+
+.w3-display-container:hover span.w3-display-hover {
+  display: inline-block
+}
+
+.w3-display-topleft {
+  position: absolute;
+  left: 0;
+  top: 0
+}
+
+.w3-hide {
+  display: none !important
+}
+
+.w3-show-block, .w3-show {
+  display: block !important
+}
+
+.w3-show-inline-block {
+  display: inline-block !important
+}
+.w3-main, #main {
+  transition: margin-left .4s
+}
+
+.w3-sidebar {
+  height: 100%;
+  width: 200px;
+  background-color: #fff;
+  position: fixed !important;
+  z-index: 1;
+  overflow: hidden;
+}
+.w3-left {
+  float: left !important
+}
+
+.w3-right {
+  float: right !important
+}

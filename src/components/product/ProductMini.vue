@@ -14,18 +14,18 @@
 
 <script>
     export default {
-        name: "product-mini",
-        props: ['product'],
+        name: "ProductMini"
     }
 </script>
 
 <style scoped lang="scss">
-    @import "./../css/base.scss";
-    @import "./../css/positions.scss";
-    @import "./../css/text.scss";
-    @import "./../css/space.scss";
+    @import "./../../assets/css/base.scss";
+    @import "./../../assets/css/positions.scss";
+    @import "./../../assets/css/text.scss";
+    @import "./../../assets/css/space.scss";
+
     .button {
-        background:black;
+        background: black;
         color: white;
         visibility: visible;
         position: absolute;
@@ -38,7 +38,8 @@
         position: relative;
 
         &:hover {
-            margin-top:-5px;
+            margin-top: -5px;
+
             .button {
                 visibility: visible;
             }

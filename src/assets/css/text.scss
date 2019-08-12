@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body, h1, h2, h3, h4, h5, h6, p{
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+
+}
+a{
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+p.text-large{
+  font-size: 64px;
+  line-height: 1.5;
+}
+p.text-smallest{
+  font-size: 36px;
+}
+.w3-wide {
+  letter-spacing: 4px
+}
+
+.w3-tiny {
+  font-size: 10px !important
+}
+
+.w3-small {
+  font-size: 16px !important
+}
+
+.w3-medium {
+  font-size: 15px !important
+}
+
+.w3-large {
+  font-size: 18px !important
+}
+
+.w3-xlarge {
+  font-size: 24px !important
+}
+
+.w3-xxlarge {
+  font-size: 36px !important
+}
+
+.w3-xxxlarge {
+  font-size: 48px !important
+}
+
+.w3-jumbo {
+  font-size: 54px !important;
+  font-family: 'Montserrat', sams-serif;
+  font-weight: normal;
+  letter-spacing: 6px;
+  margin: 14px 0 0;
+}
+
+.w3-hide-small{
+  font-weight: normal;
+}
+
+.w3-left-align {
+  text-align: left !important
+}
+
+.w3-right-align {
+  text-align: right !important
+}
+
+.w3-justify {
+  text-align: justify !important
+}
+
+.w3-center {
+  text-align: center !important
+}
+
+.w3-text-grey, .w3-hover-text-grey:hover, .w3-text-gray, .w3-hover-text-gray:hover {
+  color: #757575 !important
+}
+.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+  color: #000 !important;
+  background-color: #f1f1f1 !important
+}
+.w3-bar-block.w3-center .w3-bar-item {
+  text-align: center
+}
+.w3-white, .w3-hover-white:hover {
+  color: #000 !important;
+  background-color: #fff !important
+}
+
+.w3-button:hover {
+  color: #000 !important;
+  background-color: #ccc !important
+}
+.w3-dropdown-hover:hover > .w3-button:first-child, .w3-dropdown-click:hover > .w3-button:first-child {
+  background-color: #ccc;
+  color: #000
+}
+.w3-black, .w3-hover-black:hover {
+  color: #fff !important;
+  background-color: #000 !important
+}
+
+.w3-green, .w3-hover-green:hover {
+  color: #ffffff !important;
+  background-color: #26be00 !important
+}
+
+.w3-text-white, .w3-hover-text-white:hover {
+  color: #fff !important
+}
+
+.w3-red, .w3-hover-red:hover {
+  color: #fff !important;
+  background-color: #f44336 !important
+}
+.w3-bar .w3-button {
+  white-space: normal;
+}
+.w3-bar-block .w3-dropdown-hover .w3-button, .w3-bar-block .w3-dropdown-click .w3-button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px
+}
+.w3-bar-block .w3-dropdown-hover .w3-button, .w3-bar-block .w3-dropdown-click .w3-button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px
+}

@@ -1,23 +1,23 @@
 <template>
-    <div style=" width: 920px;">
-        <Header/>
+    <div>
+        <Header />
         <h5>Chosen products</h5>
         <div class="product-cart">
-            <cart-item v-for="product in products" :key="product.id" :product="product"/>
+            <CartItem v-for="product in products" :key="product.id" :product="product"/>
         </div>
         <div class="buttons">
-        <button>BACK TO STORE</button>
-        <button>CHECKOUT</button>
-    </div>
+            <button class="w3-button w3-black w3-padding-large w3-large">back to store</button>
+            <button class="w3-button w3-green w3-padding-large w3-large" >checkout  <i class="fas fa-arrow-right"></i></button>
+        </div>
     </div>
 </template>
 
 <script>
-    import CartItem from "@/assets/template/cartItem";
-    import Header from "@/assets/template/header";
+    import Header from "@/components/misc/Header";
+    import CartItem from "@/components/cart/CartItem";
     export default {
         name: "Cart",
-        components: {CartItem,Header},
+        components: {CartItem, Header},
         data() {
             return {
                 products: [
@@ -56,10 +56,9 @@
 </script>
 
 <style scoped>
-    @import "./../css/base.scss";
-    @import "./../css/positions.scss";
-    @import "./../css/text.scss";
-    @import "./../css/space.scss";
-.product-cart{
-}
+    @import "./../../assets/css/base.scss";
+    @import "./../../assets/css/positions.scss";
+    @import "./../../assets/css/text.scss";
+    @import "./../../assets/css/space.scss";
+
 </style>
