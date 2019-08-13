@@ -1,8 +1,9 @@
 <template>
     <header >
-        <p class="w3-xlarge">{{header}}</p>
+        <p class="w3-xlarge">{{headerDisplay}}</p>
         <p style="display: flex; align-items: baseline">
-            <router-link :to="{name:'cart'}" class="header-short">{{getCartCount}} items<i class="fa fa-shopping-cart w3-margin-right"></i>
+            <router-link :to="{name:'cart'}" class="header-short">
+                {{getCartCount}} items<i class="fa fa-shopping-cart w3-margin-right"></i>
             </router-link>
             <input v-model="search" placeholder="Zacznij pisać aby wyszukać" class="search" style="display: none; "/>
             <i class="fa fa-search" v-on:click="showSearchBar"></i>
@@ -22,6 +23,13 @@
             getComponent(){
                 return this.$router.currentRoute.name;
             },
+            headerDisplay(){
+                if (this.header === 'categoria4' || this.header === 'categoria5' || this.header === 'categoria6' || this.header === 'categoria7'){
+                    return "Categoria3 | "+this.header;
+                }else{
+                    return this.header
+                }
+            }
         },
         data(){
             return {

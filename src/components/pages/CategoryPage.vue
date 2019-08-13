@@ -6,11 +6,11 @@
             <div>
                 <p class="w3-small w3-text-grey w3-margin-left">{{length}} items</p>
             </div>
-<!--            <div class="products">-->
-<!--                <ProductMini v-for="product in getProducts"-->
-<!--                             :key="product.id"-->
-<!--                             :product="product"/>-->
-<!--            </div>-->
+            <div class="products">
+                <ProductMini v-for="product in getProducts"
+                             :key="product.id"
+                             :product="product"/>
+            </div>
         </div>
 
     </div>
@@ -24,37 +24,18 @@
     export default {
         name: "CategoryPage",
         components: {Header, ProductMini},
-        data(){
-            return{
-                category:'Shirts',
-                name:'',
-                length:0,
-            }
-        },
         computed: {
             ...mapGetters(['getProductsByCategory']),
-            // length() {
-            //     return (this.getProducts) ? this.getProducts.length : 0;
-            // },
-            // name() {
-            //     return this.$router.currentRoute.params.name;
-            // },
+            length() {
+                return (this.getProducts) ? this.getProducts.length : 0;
+            },
+            name() {
+                return this.$route.params.name;
+            },
             getProducts() {
-                console.log( this.$router.currentRoute, this.$router.params);
-                return this.getProductsByCategory(this.name.slice(9));
-
+                return this.getProductsByCategory(parseInt(this.name.slice(9)));
             }
         },
-        beforeRouteUpdate(){
-            this.name = this.$router.currentRoute.params.name;
-            this.length = (this.getProducts) ? this.getProducts.length : 0;
-        },
-            created(){
-                // if (this.getProducts){
-                //     this.length = this.getProducts.length
-                // }
-
-            },
     }
 </script>
 

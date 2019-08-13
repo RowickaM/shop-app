@@ -2,7 +2,9 @@
     <div>
         <Header/>
         <div class="short-info">
-            <div id="img"></div>
+            <div id="img">
+                <img :src="getProduct.product.image" />
+            </div>
             <div class="w3-margin-left-large">
                 <h1>{{getProduct.product.product_name}}y</h1>
                 <h5>product {{getProduct.product.id}}</h5>
@@ -35,7 +37,6 @@
         computed:{
             ...mapGetters(['getProductByID']),
             getProduct(){
-                console.log(this.getProductByID(parseInt(this.$route.params.id)));
                 return this.getProductByID(parseInt(this.$route.params.id))[0];
             }
         },
@@ -58,10 +59,9 @@
     @import "./../../assets/css/space.scss";
     @import "./../../assets/css/text.scss";
 
-    #img {
+    img {
         min-width: 386px;
         min-height: 482px;
-        background: #550000;
     }
 
     .short-info {

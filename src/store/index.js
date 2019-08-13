@@ -15,7 +15,7 @@ export default new Vuex.Store({
         modal: false, //czy wyświetlić okno modalne
         cart: [], //produkty w koszyku
         products: [],//spis wszystkich produktów
-        category:[],
+        // category:[],
     },
     getters: {
         getModalState(state) {

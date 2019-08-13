@@ -1,11 +1,11 @@
 <template>
     <div class="product">
-        <div class="pc">{{product.count}}<span></span></div>
+        <div class="pc">{{count}}<span></span></div>
         <div  class="info-product">
-            <div class="pic"><img :src="product.product.image"/></div>
+            <div class="pic"><img :src="product.product.product.image"/></div>
             <div class="info">
-                <div class="name"><h3>{{product.product.product_name}}</h3></div>
-                <div class="price-pc"><h3>{{product.product.price}}/pc.</h3></div>
+                <div class="name"><h3>{{product.product.product.product_name}}</h3></div>
+                <div class="price-pc"><h3>{{product.product.product.price}}/pc.</h3></div>
                 <div class="price"><h3>${{total}}</h3></div>
             </div>
         </div>
@@ -19,18 +19,19 @@
     import {mapActions} from 'vuex';
     export default {
         name: "cartItem",
-        props: ['product'],
+        props: ['product', 'count'],
         computed:{
             total() {
-               return parseFloat(this.product.product.price.substr(1) * this.product.count).toFixed(2);
+               return parseFloat(this.product.product.product.price.substr(1) * this.product.count).toFixed(2);
             }
         },
         methods:{
             ...mapActions(['removeProductFromCart']),
             removeProduct(){
-                console.log(this.product.product.id);
                 this.removeProductFromCart({id:this.product.product.id});
             }
+        },
+        created(){
         }
     }
 </script>

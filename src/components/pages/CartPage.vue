@@ -3,7 +3,7 @@
         <Header/>
         <h1>Chosen products</h1>
         <div class="product-cart">
-            <CartItem v-for="product in getCart" :key="product.id" :product="product"/>
+            <CartItem v-for="product in getCart" :key="product.id" :product="product" :count="product.count"/>
         </div>
         <div class="buttons">
             <button class="w3-button w3-black w3-padding-large w3-large">back to store</button>
