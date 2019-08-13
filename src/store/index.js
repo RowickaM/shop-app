@@ -15,7 +15,7 @@ export default new Vuex.Store({
         modal: false, //czy wyświetlić okno modalne
         cart: [], //produkty w koszyku
         products: [],//spis wszystkich produktów
-
+        category:[],
     },
     getters: {
         getModalState(state) {
@@ -34,8 +34,13 @@ export default new Vuex.Store({
             return couter;
         },
         getProductByID(state){
-            console.log(state.products)
-            return (id)=> state.products.filter(item => item.id === id);
+            return (id)=> state.products.filter(item => item.product.id === id);
+        },
+        getProductsByName(state){
+            return (name)=> state.products.filter(item => item.product.product_name === name)
+        },
+        getProductsByCategory(state){
+            return (categoryID) => state.products.filter(item => item.category === categoryID);
         }
     },
     actions: {
@@ -47,7 +52,8 @@ export default new Vuex.Store({
             if (context.state.products.length === 0) {
                 productsQuery.then(json => {
                     json.data.forEach(item => {
-                        context.commit('addProduct', {product: item});
+
+                        context.commit('addProduct', {product: item, category: Math.floor((Math.random() * 11) +1)} );
                     })
                 })
             }
@@ -76,7 +82,7 @@ export default new Vuex.Store({
         },
 
         addProduct(state, payload) {
-            state.products.push(payload.product);
+            state.products.push({product : payload.product, category: payload.category});
         },
 
         addToCart(state, payload){

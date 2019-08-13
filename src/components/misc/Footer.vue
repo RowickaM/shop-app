@@ -4,7 +4,7 @@
         <div class="w3-container w3-black w3-padding-32" id="subscribe">
             <h1>Subscribe</h1>
             <p>To get special offers and VIP treatment:</p>
-            <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
+            <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:calc(100% - 16px)"></p>
             <button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>
         </div>
         <div class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">

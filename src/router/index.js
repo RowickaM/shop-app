@@ -7,25 +7,21 @@ import CategoryPage from "@/components/pages/CategoryPage";
 import CartPage from "@/components/pages/CartPage";
 import ProductPage from "@/components/pages/ProductPage";
 import PaymentPage from "@/components/pages/PaymentPage";
+import FindProductsPage from "@/components/pages/FindProductsPage";
 
 Vue.use(Router);
 
 const router = new Router({
     routes:[
         {
+            path: '/find',
+            name: 'find',
+            component: FindProductsPage
+        },
+        {
             path: '/payment',
             name: 'payment',
             component: PaymentPage
-        },
-        {
-            path: '/:name',
-            name: 'category',
-            component: CategoryPage
-        },
-        {
-            path: '/:category/:id',
-            name: 'product',
-            component: ProductPage
         },
         {
             path: '/cart',
@@ -36,6 +32,16 @@ const router = new Router({
             path: '/',
             name: 'home',
             component: HomePage
+        },
+        {
+            path: '/:name',
+            name: 'category',
+            component: CategoryPage
+        },
+        {
+            path: '/:category/:id',
+            name: 'product',
+            component: ProductPage
         },
     ],
     mode: 'history',

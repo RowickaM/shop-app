@@ -1,15 +1,15 @@
 <template>
     <div class="product">
         <div id="img">
-            <img :src="product.image"/>
+            <img :src="product.product.image"/>
             <div class="button w3-button w3-black" v-on:click="addToCart">Buy now <i
                     class="fa fa-shopping-cart w3-margin-right"></i></div>
         </div>
-        <span v-if="product.annotation">{{product.annotation}}</span>
-        <router-link :to="{name:'product', params:{'category':'category', 'id':product.id}}">
+        <span v-if="product.annotation">{{product.product.annotation}}</span>
+        <router-link :to="{name:'product', params:{'category': `categoria${product.category}`, 'id':product.product.id}}">
             <div class="info">
-                <p>{{product.product_name}}</p>
-                <p><b>{{product.price}}</b></p>
+                <p>{{product.product.product_name}}</p>
+                <p><b>{{product.product.price}}</b></p>
             </div>
         </router-link>
     </div>

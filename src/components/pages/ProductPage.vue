@@ -4,15 +4,15 @@
         <div class="short-info">
             <div id="img"></div>
             <div class="w3-margin-left-large">
-                <h1>{{getProduct.product_name}}y</h1>
-                <h5>product {{getProduct.id}}</h5>
-                <h3 class="bold">{{getProduct.company}}</h3>
-                <p>{{getProduct.short_description}}</p>
-                <h2 class="bold">{{getProduct.price}}</h2>
+                <h1>{{getProduct.product.product_name}}y</h1>
+                <h5>product {{getProduct.product.id}}</h5>
+                <h3 class="bold">{{getProduct.product.company}}</h3>
+                <p>{{getProduct.product.short_description}}</p>
+                <h2 class="bold">{{getProduct.product.price}}</h2>
             </div>
         </div>
         <div class="description">
-            {{getProduct.description}}
+            {{getProduct.product.description}}
         </div>
         <div class="buttons">
             <router-link :to="{name:'home'}">
@@ -35,6 +35,7 @@
         computed:{
             ...mapGetters(['getProductByID']),
             getProduct(){
+                console.log(this.getProductByID(parseInt(this.$route.params.id)));
                 return this.getProductByID(parseInt(this.$route.params.id))[0];
             }
         },
