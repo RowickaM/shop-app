@@ -53,26 +53,6 @@
                         startsub:true
                     },
                     {
-                        id: 4,
-                        name: 'categoria4',
-                        sub:true
-                    },
-                    {
-                        id: 5,
-                        name: 'categoria5',
-                        sub:true
-                    },
-                    {
-                        id: 6,
-                        name: 'categoria6',
-                        sub:true
-                    },
-                    {
-                        id: 7,
-                        name: 'categoria7',//tu koniec submenu
-                        sub:true
-                    },
-                    {
                         id: 8,
                         name: 'categoria8'
                     },
