@@ -52,15 +52,20 @@ export default new Vuex.Store({
         addProductToCart(context, payload){
             context.commit('addToCart',{product:payload.product});
         },
-        setTempCart(context){
-            let tab = temp;
-            context.commit('setTempCart',{tab:tab});
-        }
+
+        removeProductFromCart(context,payload){
+            context.commit('removeFromCart', {id:payload.id})
+        },
+
+        // setTempCart(context){
+        //     let tab = temp;
+        //     context.commit('setTempCart',{tab:tab});
+        // }
     },
     mutations: {
-        setTempCart(state, payload){
-            state.cart = payload.temp;
-        },
+        // setTempCart(state, payload){
+        //     state.cart = payload.tab;
+        // },
 
         setModalState(state, payload) {
             state.modal = payload.state;
@@ -82,8 +87,8 @@ export default new Vuex.Store({
         },
 
         removeFromCart(state, payload){
-            let position = state.cart.findIndex(item => payload.product.id === item.id);
-            console.log(position);
+            let position = state.cart.findIndex(item => payload.id === item.product.id);
+            console.log( state.cart, payload.id);
             if(state.cart[position].count === 1)
                 state.cart.splice(position, 1);
             else

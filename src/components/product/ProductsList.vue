@@ -24,7 +24,7 @@
             }
         },
         computed: {
-            ...mapGetters(['getProducts', 'getProducts'])
+            ...mapGetters(['getProducts'])
         },
         methods:{
             ...mapActions(['fetchProducts'])

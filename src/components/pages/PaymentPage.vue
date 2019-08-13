@@ -3,7 +3,7 @@
         <Header :header="'Checkout'"/>
         <h1>Checkout & Payment</h1>
         <div>
-            <ItemListCart v-for="product in products" :key="product.id" :product="product"/>
+            <ItemListCart v-for="product in getCart" :key="product.id" :product="product"/>
         </div>
         <div class="total"><h5>TOTAL: </h5><span>${{total}}</span></div>
 
@@ -14,37 +14,42 @@
                 <label for="name">Name</label>
                 <input id="name" type="text" placeholder="John Doe">
 
-                <label for="phone">Name</label>
+                <label for="phone">Phone</label>
                 <input id="phone" type="tel" placeholder="0-100-200-300">
 
-                <label for="postalCode">Name</label>
+                <label for="postalCode">Postal Code</label>
                 <input id="postalCode" type="text" placeholder="10-200">
 
-                <label for="town">Name</label>
+                <label for="town">Town</label>
                 <input id="town" type="text" placeholder="New York">
 
-                <label for="street">Name</label>
+                <label for="street">Street</label>
                 <input id="street" type="text" placeholder="1st Street Avenue">
 
             </div>
 
             <div class="w3-row s4">
                 <h4>Credit card</h4>
-                <label for="number">Name</label>
+                <label for="number">Number</label>
                 <input id="number" type="text" placeholder="---- ---- ---- ----">
 
-                <label for="expiryDate">Name</label>
+                <label for="expiryDate">Expiry date</label>
                 <input id="expiryDate" type="text" placeholder="--/----">
 
-                <label for="cvv">Name</label>
+                <label for="cvv">CVV</label>
                 <input id="cvv" type="text" placeholder="---">
 
             </div>
         </div>
 
         <div class="buttons">
-            <button class="w3-button w3-black w3-padding-large w3-large">back to shopping cart</button>
-            <button class="w3-button w3-green w3-padding-large w3-large" >order & pay<i class="fas fa-arrow-right"></i></button>
+            <router-link :to="{name:'cart'}">
+                <button class="w3-button w3-black w3-padding-large w3-large">
+                    back to shopping cart
+                </button>
+            </router-link>
+            <button class="w3-button w3-green w3-padding-large w3-large">order & pay<i class="fas fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 </template>
@@ -53,50 +58,25 @@
     import Header from "@/components/misc/Header";
     import ItemListCart from "@/components/cart/ItemListCart";
 
+    import {mapGetters,mapActions} from 'vuex';
+
     export default {
         name: "PaymentPage",
         components: {Header, ItemListCart},
-        data() {
-            return {
-                products: [
-                    {
-                        id: 1,
-                        name: 'Ripped Skinny Jeans',
-                        price: 24.99,
-                        annotation: '',
-                        count: 1
-                    },
-                    {
-                        id: 2,
-                        name: 'Mega Ripped Jeans',
-                        price: 19.99,
-                        annotation: 'New',
-                        count: 3
-                    },
-                    {
-                        id: 3,
-                        name: 'Washed Skinny Jeans',
-                        price: 20.50,
-                        annotation: '',
-                        count: 1
-                    },
-                    {
-                        id: 4,
-                        name: 'Vintage Skinny Jeans',
-                        price: 14.99,
-                        annotation: '',
-                        count: 2
-                    },
-                ]
-            }
-        },
         computed: {
+            ...mapGetters(['getCart']),
             total() {
                 let total = 0;
-                this.products.forEach(item => total += item.price * item.count);
-                return total;
+                this.getCart.forEach(item => total += item.product.price.substr(1) * item.count);
+                return parseFloat(total).toFixed(2);
             }
-        }
+        },
+        methods: {
+            // ...mapActions([]),
+        },
+        created(){
+            // this.setTempCart();
+        },
     }
 </script>
 
@@ -135,9 +115,10 @@
         font-size: 12px;
         font-family: "Montserrat", sans-serif;
         display: block;
+        margin-top: 15px;
     }
 
-    .form{
+    .form {
         display: flex;
         width: calc(33.3333% + 15px);
         justify-content: space-between;
@@ -155,7 +136,8 @@
             font-weight: bold;
         }
     }
-    .fas{
+
+    .fas {
         margin-left: 5px;
     }
 </style>

@@ -22,13 +22,14 @@
         props: ['product'],
         computed:{
             total() {
-               return this.product.product.price.substr(1) * this.product.count;
+               return parseFloat(this.product.product.price.substr(1) * this.product.count).toFixed(2);
             }
         },
         methods:{
-            ...mapActions(['removeFromCart']),
+            ...mapActions(['removeProductFromCart']),
             removeProduct(){
-                this.removeFromCart({product:this.product});
+                console.log(this.product.product.id);
+                this.removeProductFromCart({id:this.product.product.id});
             }
         }
     }

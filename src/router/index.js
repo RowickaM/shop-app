@@ -17,16 +17,16 @@ const router = new Router({
             name: 'payment',
             component: PaymentPage
         },
-        {
-            path: '/:name',
-            name: 'category',
-            component: CategoryPage
-        },
-        {
-            path: '/:name/:id',
-            name: 'product',
-            component: ProductPage
-        },
+        // {
+        //     path: '/:name',
+        //     name: 'category',
+        //     component: CategoryPage
+        // },
+        // {
+        //     path: '/:name/:id',
+        //     name: 'product',
+        //     component: ProductPage
+        // },
         {
             path: '/cart',
             name: 'cart',
