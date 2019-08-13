@@ -8,6 +8,7 @@
             <ProductMini v-for="product in getProducts"
                          :key="product.id"
                          :product="product"/>
+<!--                            :category="product."/>-->
         </div>
     </div>
 </template>
@@ -30,8 +31,8 @@
             ...mapActions(['fetchProducts'])
         },
         created() {
-            // if (this.getProducts.length === 0)
-            //     this.fetchProducts();
+            if (this.getProducts)
+                this.fetchProducts();
         }
     }
 </script>

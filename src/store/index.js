@@ -32,6 +32,9 @@ export default new Vuex.Store({
             let couter=0;
             state.cart.forEach(item=>couter+= item.count);
             return couter;
+        },
+        getProductByID(state){
+            (id)=> state.cart.filter(item => item.id === id);
         }
     },
     actions: {

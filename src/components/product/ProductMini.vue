@@ -1,28 +1,31 @@
 <template>
     <div class="product">
         <div id="img">
-            <img src="#"/>
-            <div class="button w3-button w3-black" v-on:click="addToCart">Buy now <i class="fa fa-shopping-cart w3-margin-right"></i></div>
+            <img :src="product.image"/>
+            <div class="button w3-button w3-black" v-on:click="addToCart">Buy now <i
+                    class="fa fa-shopping-cart w3-margin-right"></i></div>
         </div>
-        <span v-if="product.annotation !== ''">{{product.annotation}}</span>
-        <div class="info">
-            <p>{{product.product_name}}</p>
-            <p><b>{{product.price}}</b></p>
-        </div>
+        <span v-if="product.annotation">{{product.annotation}}</span>
+        <router-link :to="{name:'product', params:{'category':'category', 'id':product.id}}">
+            <div class="info">
+                <p>{{product.product_name}}</p>
+                <p><b>{{product.price}}</b></p>
+            </div>
+        </router-link>
     </div>
 </template>
 
 <script>
     import {mapActions} from 'vuex';
+
     export default {
         name: "ProductMini",
-        props:['product'],
+        props: ['product'], //,'category'
         methods: {
-            ...mapActions(['addProductToCart','changeModalState']),
+            ...mapActions(['addProductToCart', 'changeModalState']),
             addToCart() {
-                // console.log('jestem');
                 this.changeModalState();
-                this.addProductToCart({product:this.product});
+                this.addProductToCart({product: this.product});
             }
         },
     }
@@ -37,14 +40,21 @@
     .product .button {
         background: black;
         color: white;
-        visibility: hidden ; /*todo czemu się nie chowa?*/
+        visibility: hidden;
         position: absolute;
         top: 43%;
         left: 23%;
         padding-right: 0;
     }
 
+    .info {
+        width: 205px;
+        cursor: pointer;
+    }
+
     .product {
+        margin-left: 12px;
+        margin-right: 13px;
         position: relative;
 
         &:hover {
@@ -56,11 +66,10 @@
         }
     }
 
-    #img {
+    img {
         position: relative;
         width: 205px;
         height: 256px;
-        background-image: linear-gradient(to right top, #37051b, #5e2831, #844d48, #a97563, #cd9f81);
     }
 
     span {
