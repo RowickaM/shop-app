@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-import temp from './temp';
+// import temp from './temp';
 
 
 Vue.use(Vuex);
@@ -34,7 +34,8 @@ export default new Vuex.Store({
             return couter;
         },
         getProductByID(state){
-            (id)=> state.cart.filter(item => item.id === id);
+            console.log(state.products)
+            return (id)=> state.products.filter(item => item.id === id);
         }
     },
     actions: {
@@ -91,7 +92,6 @@ export default new Vuex.Store({
 
         removeFromCart(state, payload){
             let position = state.cart.findIndex(item => payload.id === item.product.id);
-            console.log( state.cart, payload.id);
             if(state.cart[position].count === 1)
                 state.cart.splice(position, 1);
             else

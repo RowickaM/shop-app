@@ -2,7 +2,7 @@
     <div class="w3-main">
         <h1 v-if="nameCategory" class="w3-margin-left">Explore our {{nameCategory.toLowerCase()}} collection</h1>
         <div>
-            <p class="w3-small w3-text-grey w3-margin-left">{{getProducts.length}} items</p>
+            <p class="w3-small w3-text-grey w3-margin-left">{{length}} items</p>
         </div>
         <div class="products">
             <ProductMini v-for="product in getProducts"
@@ -25,7 +25,10 @@
             }
         },
         computed: {
-            ...mapGetters(['getProducts'])
+            ...mapGetters(['getProducts']),
+            length(){
+                return (this.getProducts) ? this.getProducts.length : 0;
+            },
         },
         methods:{
             ...mapActions(['fetchProducts'])
