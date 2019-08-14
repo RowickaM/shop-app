@@ -19,44 +19,14 @@
 <script>
     import NavItem from "@/components/misc/NavItem";
     import {mapActions, mapGetters} from "vuex";
+    import categories from "./../../assets/data/categories";
 
     export default {
         name: "Navigation",
         components: {NavItem},
         data() {
             return {
-                categories: [
-                    {
-                        id: 1,
-                        name: 'categoria1'
-                    },
-                    {
-                        id: 2,
-                        name: 'categoria2'
-                    },
-                    {
-                        id: 3,
-                        name: 'categoria3',//tu początek submenu
-                        startsub: true
-                    },
-                    {
-                        id: 8,
-                        name: 'categoria8'
-                    },
-                    {
-                        id: 9,
-                        name: 'categoria9'
-                    },
-                    {
-                        id: 10,
-                        name: 'categoria10'
-                    },
-                    {
-                        id: 11,
-                        name: 'categoria11'
-                    },
-
-                ],
+                categories: categories,
             }
         },
         computed: {

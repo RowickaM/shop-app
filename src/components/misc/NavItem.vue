@@ -29,31 +29,16 @@
 
 <script>
     import NavSubItem from "@/components/misc/NavSubItem";
+    import subcategories from "@/assets/data/subCategories";
+
     export default {
         name: "NavItem",
         components: {NavSubItem},
         props:['category'],
         data(){
             return {
-                show:true,
-                subcategories:[
-                    {
-                        id: 4,
-                        name: 'categoria4',
-                    },
-                    {
-                        id: 5,
-                        name: 'categoria5',
-                    },
-                    {
-                        id: 6,
-                        name: 'categoria6',
-                    },
-                    {
-                        id: 7,
-                        name: 'categoria7',
-                    },
-                ]
+                show:false,
+                subcategories: subcategories
             }
         },
         computed:{

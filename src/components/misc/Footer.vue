@@ -1,6 +1,5 @@
 <template>
     <footer>
-        <!-- Subscribe section -->
         <div class="w3-container w3-black w3-padding-32" id="subscribe">
             <h1>Subscribe</h1>
             <p>To get special offers and VIP treatment:</p>
@@ -52,6 +51,9 @@
                 </div>
             </div>
         </div>
+
+        <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
+
     </footer>
 </template>
 
@@ -65,5 +67,9 @@
 
     i.fab.w3-large{
         margin-right: 5px;
+    }
+    button{
+        display: block;
+        width: 100%;
     }
 </style>

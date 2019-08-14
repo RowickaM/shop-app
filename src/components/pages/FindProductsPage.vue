@@ -1,7 +1,7 @@
 <template>
     <div>
         <Header/>
-        <input type="text" class="w3-input w3-border w3-margin-left" v-model="search" placeholder="Zacznij pisać aby wyszukać"/>
+        <input type="text" autofocus class="w3-input w3-border w3-margin-left" v-model="search" placeholder="Start typing to find products"/>
         <div v-if="length > 0">
             <p class="w3-small w3-text-grey w3-margin-left">{{length}} items</p>
         </div>

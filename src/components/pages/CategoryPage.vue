@@ -6,22 +6,23 @@
             <div>
                 <p class="w3-small w3-text-grey w3-margin-left">{{length}} items</p>
             </div>
-            <div v-if="length > 0" class="products">
+            <div v-if="length > 0 " class="products">
                 <ProductMini v-for="product in getProducts"
                              :key="product.id"
                              :product="product"/>
             </div>
-            <div v-else class="empty-category w3-text-grey">
-                <p>Brak produktów w tej kategorii.</p>
+            <div v-else class="loading">
+                <h2>Not found</h2>
             </div>
         </div>
-
     </div>
 </template>
 
 <script>
     import Header from "@/components/misc/Header";
     import ProductMini from "@/components/product/ProductMini";
+    import categories from "@/assets/data/categories";
+    import subCategories from "@/assets/data/subCategories";
     import {mapGetters} from "vuex";
 
     export default {
@@ -36,8 +37,15 @@
                 return this.$route.params.name;
             },
             getProducts() {
-                return this.getProductsByCategory(parseInt(this.name.slice(9)));
-            }
+                let idCategories = categories.filter(item=> this.name.toString().toLowerCase() === item.name.toLowerCase());
+
+                if (!idCategories[0]){
+                    idCategories= subCategories.filter(item=> this.name.toString().toLowerCase() === item.name.toLowerCase());
+                }
+
+                return this.getProductsByCategory(parseInt(idCategories[0].id));
+            },
+
         },
     }
 </script>

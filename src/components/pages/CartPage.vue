@@ -9,7 +9,7 @@
             <p>Brak wyników.</p>
         </div>
         <div class="buttons">
-            <button class="w3-button w3-black w3-padding-large w3-large">back to store</button>
+            <router-link :to="{name:'home'}"><button class="w3-button w3-black w3-padding-large w3-large">back to store</button></router-link>
             <router-link :to="{name:'payment'}">
                 <button class="w3-button w3-green w3-padding-large w3-large">
                     checkout <i class="fas fa-arrow-right"></i>

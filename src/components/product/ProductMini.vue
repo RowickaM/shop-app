@@ -1,12 +1,13 @@
 <template>
     <div class="product">
-        <div id="img">
-            <img :src="product.product.image"/>
+        <div :id=id>
+            <div :id="loader" class="loader">
+            </div>
             <div class="button w3-button w3-black" v-on:click="addToCart">Buy now <i
                     class="fa fa-shopping-cart w3-margin-right"></i></div>
         </div>
-        <span v-if="product.annotation">{{product.product.annotation}}</span>
-        <router-link :to="{name:'product', params:{'category': `categoria${product.category}`, 'id':product.product.id}}">
+        <span v-if="product.annotation">{{product.annotation}}</span>
+        <router-link :to="{name:'product', params:{'category': getNameCategory(), 'id':product.product.id}}">
             <div class="info">
                 <p>{{product.product.product_name}}</p>
                 <p><b>{{product.product.price}}</b></p>
@@ -17,21 +18,62 @@
 
 <script>
     import {mapActions} from 'vuex';
+    import categories from "@/assets/data/categories";
+    import subCategories from "@/assets/data/subCategories";
 
     export default {
         name: "ProductMini",
-        props: ['product'], //,'category'
+        props: ['product'],
+        data(){
+            return{
+                isLoaded: false
+            }
+        },
         methods: {
             ...mapActions(['addProductToCart', 'changeModalState']),
             addToCart() {
                 this.changeModalState();
                 this.addProductToCart({product: this.product});
+            },
+            getNameCategory(){
+                let idCategories = categories.filter(item=> this.product.category === item.id);
+
+                if (!idCategories[0]){
+                    idCategories= subCategories.filter(item=> this.product.category === item.id);
+                }
+                return idCategories[0].name;
             }
         },
+        computed:{
+            id(){
+                return "img-"+this.product.product.id;
+            },
+            loader(){
+                return "loader-"+this.product.product.id;
+            },
+            // category(){
+            //     return this.getNameCategory;
+            // }
+        },
+        mounted(){
+
+            let loader = document.getElementById(this.loader);
+
+            let img = new Image(205,256);
+            img.src = this.product.product.image;
+            img.onload = function (){
+                loader.remove()
+            };
+            document.getElementById(this.id).append(img);
+
+
+        }
     }
 </script>
 
 <style scoped lang="scss">
+    @import './../../assets/css/loader.css';
+
     .product .button {
         background: black;
         color: white;
@@ -49,11 +91,14 @@
 
     .product {
         margin-left: 12px;
+        height: 383px ;
         margin-right: 13px;
         position: relative;
+        transition: margin .3s ease-in;
 
         &:hover {
             margin-top: -5px;
+            /*transition: margin .3s ease-in;*/
 
             .button {
                 visibility: visible;

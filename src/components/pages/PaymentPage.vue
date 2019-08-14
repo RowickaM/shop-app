@@ -12,32 +12,32 @@
             <div class="w3-row s4">
                 <h4>Your address</h4>
                 <label for="name">Name</label>
-                <input id="name" type="text" placeholder="John Doe">
+                <input class="w3-border" id="name" type="text" placeholder="John Doe" />
 
                 <label for="phone">Phone</label>
-                <input id="phone" type="tel" placeholder="0-100-200-300">
+                <masked-input class="w3-border" id="phone" mask="0-111-111-111" placeholder="0-100-200-300" />
 
                 <label for="postalCode">Postal Code</label>
-                <input id="postalCode" type="text" placeholder="10-200">
+                <masked-input class="w3-border" id="postalCode" mask="11-111" placeholder="10-200" />
 
                 <label for="town">Town</label>
-                <input id="town" type="text" placeholder="New York">
+                <input class="w3-border" id="town" type="text" placeholder="New York" />
 
                 <label for="street">Street</label>
-                <input id="street" type="text" placeholder="1st Street Avenue">
+                <input class="w3-border" id="street" type="text" placeholder="1st Street Avenue"/>
 
             </div>
 
             <div class="w3-row s4">
                 <h4>Credit card</h4>
                 <label for="number">Number</label>
-                <input id="number" type="text" placeholder="---- ---- ---- ----">
+                <masked-input class="w3-border" id="number" mask="1111 1111 1111 1111" placeholder="---- ---- ---- ----" />
 
                 <label for="expiryDate">Expiry date</label>
-                <input id="expiryDate" type="text" placeholder="--/----">
+                <masked-input class="w3-border" id="expiryDate" mask="11/1111" placeholder="--/----" />
 
                 <label for="cvv">CVV</label>
-                <input id="cvv" type="text" placeholder="---">
+                <masked-input class="w3-border" id="cvv" mask="111" placeholder="---" />
 
             </div>
         </div>
@@ -57,12 +57,13 @@
 <script>
     import Header from "@/components/misc/Header";
     import ItemListCart from "@/components/cart/ItemListCart";
+    import MaskedInput from 'vue-masked-input'
 
     import {mapGetters} from 'vuex';
 
     export default {
         name: "PaymentPage",
-        components: {Header, ItemListCart},
+        components: {Header, ItemListCart, MaskedInput},
         computed: {
             ...mapGetters(['getCart']),
             total() {
@@ -95,8 +96,8 @@
     input {
         height: 36px;
         width: 195px;
-        border: 2px solid rgba(132, 132, 132, 0.89);
         display: block;
+        padding-left: 5px;
     }
 
     label {

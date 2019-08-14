@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-// import temp from './temp';
 
 
 Vue.use(Vuex);
@@ -12,12 +11,11 @@ const productsQuery = axios.get('http://www.mocky.io/v2/5ab0d1882e0000e60ae8b7a6
 export default new Vuex.Store({
     namespace: true,
     state: {
-        modal: false, //czy wyświetlić okno modalne
-        cart: [], //produkty w koszyku
-        products: [],//spis wszystkich produktów
+        modal: false,
+        cart: [],
+        products: [],
         search: '',
         header: ''
-        // category:[],
     },
     getters: {
         getModalState(state) {
@@ -69,7 +67,9 @@ export default new Vuex.Store({
                 productsQuery.then(json => {
                     json.data.forEach(item => {
 
-                        context.commit('addProduct', {product: item, category: Math.floor((Math.random() * 11) + 1)});
+                        let annotation=['','Sale','New'];
+
+                        context.commit('addProduct', {product: item, category: Math.floor((Math.random() * 11) + 1), annotation: annotation[Math.floor((Math.random() * 3))]});
                     })
                 })
             }
@@ -82,16 +82,8 @@ export default new Vuex.Store({
         removeProductFromCart(context, payload) {
             context.commit('removeFromCart', {id: payload.id})
         },
-
-        // setTempCart(context){
-        //     let tab = temp;
-        //     context.commit('setTempCart',{tab:tab});
-        // }
     },
     mutations: {
-        // setTempCart(state, payload){
-        //     state.cart = payload.tab;
-        // },
 
         setModalState(state, payload) {
             state.modal = payload.state;
@@ -106,13 +98,11 @@ export default new Vuex.Store({
         },
 
         addProduct(state, payload) {
-            state.products.push({product: payload.product, category: payload.category});
+            state.products.push({product: payload.product, category: payload.category, annotation: payload.annotation});
         },
 
         addToCart(state, payload) {
-
             let position = state.cart.findIndex(item => payload.product.product.id === item.product.product.id);
-
             if (position === -1) {
                 state.cart.push({product: payload.product, count: 1});
             } else {
