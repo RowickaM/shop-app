@@ -6,10 +6,13 @@
             <div>
                 <p class="w3-small w3-text-grey w3-margin-left">{{length}} items</p>
             </div>
-            <div class="products">
+            <div v-if="length > 0" class="products">
                 <ProductMini v-for="product in getProducts"
                              :key="product.id"
                              :product="product"/>
+            </div>
+            <div v-else class="empty-category w3-text-grey">
+                <p>Brak produktów w tej kategorii.</p>
             </div>
         </div>
 
@@ -40,5 +43,8 @@
 </script>
 
 <style scoped>
-
+    .empty-category{
+        text-align: center;
+        font-size: 40px;
+    }
 </style>

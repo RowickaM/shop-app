@@ -39,7 +39,7 @@ const router = new Router({
             component: CategoryPage
         },
         {
-            path: '/:category/:id',
+            path: '/:category/productid?:id',
             name: 'product',
             component: ProductPage
         },

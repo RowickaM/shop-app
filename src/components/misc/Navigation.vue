@@ -33,6 +33,7 @@
 
 <script>
     import NavItem from "@/components/misc/NavItem";
+    import {mapActions, mapGetters} from "vuex";
     export default {
         name: "Navigation",
         components: {NavItem},
@@ -71,7 +72,17 @@
 
                 ],
             }
-        }
+        },
+        computed:{
+            ...mapGetters(['getProducts'])
+        },
+        methods:{
+            ...mapActions(['fetchProducts'])
+        },
+        created() {
+            if (!this.getProducts)
+                this.fetchProducts();
+        },
     }
 </script>
 

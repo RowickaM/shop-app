@@ -26,6 +26,7 @@
         computed:{
             ...mapGetters(['getModalState'])
         },
+
     }
 </script>
 

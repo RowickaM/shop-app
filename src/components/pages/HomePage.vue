@@ -34,9 +34,9 @@
     export default {
         name: "HomePage",
         components: {ProductMini, Header},
-        data(){
+        data() {
             return {
-                nameCategory:''
+                nameCategory: ''
             }
         },
         computed: {
@@ -45,14 +45,7 @@
                 return (this.getProducts) ? this.getProducts.length : 0;
             },
         },
-            methods: {
-                ...mapActions(['fetchProducts'])
-            },
-            created() {
-                if (!this.getProducts)
-                    this.fetchProducts();
-            }
-        }
+    }
 
 
 </script>
