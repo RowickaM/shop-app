@@ -58,7 +58,7 @@
     import Header from "@/components/misc/Header";
     import ItemListCart from "@/components/cart/ItemListCart";
 
-    import {mapGetters,mapActions} from 'vuex';
+    import {mapGetters} from 'vuex';
 
     export default {
         name: "PaymentPage",
@@ -67,15 +67,9 @@
             ...mapGetters(['getCart']),
             total() {
                 let total = 0;
-                this.getCart.forEach(item => total += item.product.price.substr(1) * item.count);
+                this.getCart.forEach(item => total += item.product.product.price.substr(1) * item.count);
                 return parseFloat(total).toFixed(2);
             }
-        },
-        methods: {
-            // ...mapActions([]),
-        },
-        created(){
-            // this.setTempCart();
         },
     }
 </script>

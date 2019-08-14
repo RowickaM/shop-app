@@ -2,8 +2,8 @@
     <div class="item-list">
         <div class="count"><p class="count">{{product.count}}<span></span></p></div>
         <div class="product">
-            <p class="name">{{product.product.product_name}}</p>
-            <p class="price-pc">({{product.product.price}}/pc.)</p>
+            <p class="name">{{product.product.product.product_name}}</p>
+            <p class="price-pc">({{product.product.product.price}}/pc.)</p>
         </div>
         <div class="total"><p>${{total}}</p></div>
     </div>
@@ -15,7 +15,7 @@
         props: ['product'],
         computed:{
             total() {
-                return parseFloat(this.product.product.price.substr(1) * this.product.count).toFixed(2);
+                return parseFloat(this.product.product.product.price.substr(1) * this.product.count).toFixed(2);
             }
         },
     }
