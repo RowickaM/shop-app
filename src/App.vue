@@ -32,6 +32,9 @@
 
 <style lang="scss">
   @import './assets/css/base.scss';
+  @import './assets/css/positions.scss';
+  @import './assets/css/space.scss';
+  @import './assets/css/text.scss';
     body {
         margin: 0;
         line-height: 1.5;

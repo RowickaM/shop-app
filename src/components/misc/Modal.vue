@@ -28,10 +28,6 @@
 </script>
 
 <style scoped lang="scss">
-@import "./../../assets/css/base.scss";
-@import "./../../assets/css/positions";
-@import "./../../assets/css/space";
-@import "./../../assets/css/text";
 
 .blur{
     position: fixed;

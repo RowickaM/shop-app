@@ -2,8 +2,11 @@
     <div>
         <Header/>
         <h1>Chosen products</h1>
-        <div class="product-cart">
+        <div v-if="getCart.length > 0" class="product-cart">
             <CartItem v-for="product in getCart" :key="product.id" :product="product" :count="product.count"/>
+        </div>
+        <div v-else class="empty-category w3-text-grey">
+            <p>Brak wyników.</p>
         </div>
         <div class="buttons">
             <button class="w3-button w3-black w3-padding-large w3-large">back to store</button>
@@ -37,10 +40,6 @@
     }
 </script>
 
-<style scoped>
-    @import "./../../assets/css/base.scss";
-    @import "./../../assets/css/positions.scss";
-    @import "./../../assets/css/text.scss";
-    @import "./../../assets/css/space.scss";
+<style scoped lang="scss">
 
 </style>

@@ -22,11 +22,6 @@
 </script>
 
 <style scoped lang="scss">
-    @import "./../../assets/css/base.scss";
-    @import "./../../assets/css/positions.scss";
-    @import "./../../assets/css/space.scss";
-    @import "./../../assets/css/text.scss";
-
     .item-list {
         display: flex;
         justify-content: space-between;

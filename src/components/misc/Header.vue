@@ -13,15 +13,26 @@
 </template>
 
 <script>
-    import {mapGetters} from 'vuex';
+    import {mapActions, mapGetters} from 'vuex';
 
     export default {
         name: "Header",
         props: ['header'],
         computed: {
-            ...mapGetters(['getCartCount']),
+            ...mapGetters(['getCartCount','getSearchText']),
             getComponent(){
                 return this.$router.currentRoute.name;
+            },
+            search:{
+                get(){
+                    return this.getSearchText;
+                },
+                set(search){
+                    this.setSearchText({search:search});
+                    if (this.getComponent !== 'find'){
+                        this.$router.push({name: 'find'});
+                    }
+                }
             },
             headerDisplay(){
                 if (this.header === 'categoria4' || this.header === 'categoria5' || this.header === 'categoria6' || this.header === 'categoria7'){
@@ -31,12 +42,8 @@
                 }
             }
         },
-        data(){
-            return {
-                search:''
-            }
-        },
         methods:{
+            ...mapActions(['setSearchText']),
             showSearchBar(){
                 let searchbar = document.getElementsByClassName('search')[0];
                 if (searchbar.style.display==='none') {
@@ -51,21 +58,10 @@
 
             }
         },
-        watch:{
-            search: function (val) {
-                if (this.getComponent !=='find')
-                    this.$router.push({name:'find'})
-            }
-        },
     }
 </script>
 
 <style scoped lang="scss">
-    @import "./../../assets/css/base.scss";
-    @import "./../../assets/css/positions.scss";
-    @import "./../../assets/css/text.scss";
-    @import "./../../assets/css/space.scss";
-
     header {
         display: flex;
         justify-content: space-between;

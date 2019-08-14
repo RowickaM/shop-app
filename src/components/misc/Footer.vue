@@ -61,11 +61,7 @@
     }
 </script>
 
-<style scoped>
-    @import "./../../assets/css/base.scss";
-    @import "./../../assets/css/positions.scss";
-    @import "./../../assets/css/text.scss";
-    @import "./../../assets/css/space.scss";
+<style scoped lang="scss">
 
     i.fab.w3-large{
         margin-right: 5px;

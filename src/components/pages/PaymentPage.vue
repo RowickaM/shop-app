@@ -81,11 +81,6 @@
 </script>
 
 <style scoped lang="scss">
-    @import "./../../assets/css/base.scss";
-    @import "./../../assets/css/positions.scss";
-    @import "./../../assets/css/space.scss";
-    @import "./../../assets/css/text.scss";
-
     .total {
         border-top: 2px solid #666;
         text-align: right;

@@ -37,11 +37,6 @@
 </script>
 
 <style scoped lang="scss">
-    @import "./../../assets/css/base.scss";
-    @import "./../../assets/css/positions.scss";
-    @import "./../../assets/css/text.scss";
-    @import "./../../assets/css/space.scss";
-
     .product{
         width: 920px;
         margin: 15px auto;

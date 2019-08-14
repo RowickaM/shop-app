@@ -17,6 +17,11 @@
     }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.w3-bar-item.w3-button{
+    padding-left: 0;
+}
+.w3-bar-item.w3-button.w3-light-grey{
+    padding-left: 16px;
+}
 </style>

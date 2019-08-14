@@ -1,7 +1,7 @@
 <template>
     <div>
         <a v-if="category.startsub" v-on:click="changeShow"
-           :class="{'w3-light-grey' : choose}"
+           :class="{'w3-light-grey' : choose || show }"
            class="w3-button w3-block w3-left-align"
            style="width: 100%;">
 
@@ -35,7 +35,7 @@
         props:['category'],
         data(){
             return {
-                show:false,
+                show:true,
                 subcategories:[
                     {
                         id: 4,
@@ -63,7 +63,7 @@
         },
         methods:{
             changeShow(){
-                this.show = true;
+                this.show = !this.show;
                 this.$router.push({name:'category', params:{name: this.category.name}})
             }
         }
@@ -71,6 +71,6 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

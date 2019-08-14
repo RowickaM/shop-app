@@ -6,40 +6,26 @@
         </div>
         <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
 
-            <NavItem v-for="category in categories" :key="category.id" :category="category" />
-<!--            <a href="#" class="w3-bar-item w3-button">Shirts</a>-->
-<!--            <a href="#" class="w3-bar-item w3-button">Dresses</a>-->
-<!--            <a class="w3-button w3-block w3-white w3-left-align" style="width: 100%" id="myBtn">-->
-<!--                Jeans <i class="fa fa-caret-down"></i>-->
-<!--            </a>-->
-<!--            <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium w3-show">-->
-<!--                <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>-->
-<!--                <a href="#" class="w3-bar-item w3-button">Relaxed</a>-->
-<!--                <a href="#" class="w3-bar-item w3-button">Bootcut</a>-->
-<!--                <a href="#" class="w3-bar-item w3-button">Straight</a>-->
-<!--            </div>-->
-<!--            <a href="#" class="w3-bar-item w3-button">Jackets</a>-->
-<!--            <a href="#" class="w3-bar-item w3-button">Gymwear</a>-->
-<!--            <a href="#" class="w3-bar-item w3-button">Blazers</a>-->
-<!--            <a href="#" class="w3-bar-item w3-button">Shoes</a>-->
+            <NavItem v-for="category in categories" :key="category.id" :category="category"/>
         </div>
 
 
-        <a class="w3-bar-item w3-button w3-padding normal" href="#contact" >Contact</a>
-        <a class="w3-bar-item w3-button w3-padding normal" href="#subscribe" >Newsletter</a>
-        <a class="w3-bar-item w3-button w3-padding normal" href="#subscribe" >Subscribe</a>
+        <a class="w3-bar-item w3-button w3-padding normal" href="#contact">Contact</a>
+        <a class="w3-bar-item w3-button w3-padding normal" href="#subscribe">Newsletter</a>
+        <a class="w3-bar-item w3-button w3-padding normal" href="#subscribe">Subscribe</a>
     </nav>
 </template>
 
 <script>
     import NavItem from "@/components/misc/NavItem";
     import {mapActions, mapGetters} from "vuex";
+
     export default {
         name: "Navigation",
         components: {NavItem},
-        data(){
-            return{
-                categories:[
+        data() {
+            return {
+                categories: [
                     {
                         id: 1,
                         name: 'categoria1'
@@ -51,7 +37,7 @@
                     {
                         id: 3,
                         name: 'categoria3',//tu początek submenu
-                        startsub:true
+                        startsub: true
                     },
                     {
                         id: 8,
@@ -73,10 +59,10 @@
                 ],
             }
         },
-        computed:{
+        computed: {
             ...mapGetters(['getProducts'])
         },
-        methods:{
+        methods: {
             ...mapActions(['fetchProducts'])
         },
         created() {
@@ -86,16 +72,6 @@
     }
 </script>
 
-<style scoped>
-    @import "./../../assets/css/base.scss";
-    @import "./../../assets/css/positions.scss";
-    @import "./../../assets/css/text.scss";
-    @import "./../../assets/css/space.scss";
+<style scoped lang="scss">
 
-    /*#nav {*/
-    /*    color:#757575;*/
-    /*    width: 250px;*/
-    /*    z-index: 3;*/
-    /*    height: 100%;*/
-    /*}*/
 </style>

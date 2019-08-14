@@ -42,7 +42,7 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .empty-category{
         text-align: center;
         font-size: 40px;
