@@ -16,14 +16,14 @@ export default new Vuex.Store({
         cart: [], //produkty w koszyku
         products: [],//spis wszystkich produktów
         search: '',
-        header:''
+        header: ''
         // category:[],
     },
     getters: {
         getModalState(state) {
             return state.modal;
         },
-        getHeader(state){
+        getHeader(state) {
             return state.header;
         },
         getProducts(state) {
@@ -47,7 +47,7 @@ export default new Vuex.Store({
         getProductsByCategory(state) {
             return (categoryID) => state.products.filter(item => item.category === categoryID);
         },
-        getSearchText(state){
+        getSearchText(state) {
             return state.search;
         }
     },
@@ -56,12 +56,12 @@ export default new Vuex.Store({
             context.commit('setModalState', {state: !context.getters.getModalState});
         },
 
-        setSearchText(context, payload){
-            context.commit('setSearchText',{text: payload.search})
+        setSearchText(context, payload) {
+            context.commit('setSearchText', {text: payload.search})
         },
 
-        setHeader(context, payload){
-          context.commit('setHeader', {header: payload.header});
+        setHeader(context, payload) {
+            context.commit('setHeader', {header: payload.header});
         },
 
         fetchProducts(context) {
@@ -101,7 +101,7 @@ export default new Vuex.Store({
             state.search = payload.text;
         },
 
-        setHeader(state, payload){
+        setHeader(state, payload) {
             state.header = payload.header;
         },
 
@@ -110,8 +110,9 @@ export default new Vuex.Store({
         },
 
         addToCart(state, payload) {
-            let position = state.cart.findIndex(item => payload.product.id === item.product.id);
-
+            // console.log(payload.product);
+            let position = state.cart.findIndex(item => payload.product.product.id === item.product.product.id);
+            console.log(position);
             if (position === -1) {
                 state.cart.push({product: payload.product, count: 1});
             } else {
