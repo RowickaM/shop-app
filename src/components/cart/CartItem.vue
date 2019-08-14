@@ -28,7 +28,7 @@
         methods:{
             ...mapActions(['removeProductFromCart']),
             removeProduct(){
-                this.removeProductFromCart({id:this.product.product.id});
+                this.removeProductFromCart({id:this.product.product.product.id});
             }
         },
         created(){

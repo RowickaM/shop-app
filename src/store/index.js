@@ -110,9 +110,9 @@ export default new Vuex.Store({
         },
 
         addToCart(state, payload) {
-            // console.log(payload.product);
+
             let position = state.cart.findIndex(item => payload.product.product.id === item.product.product.id);
-            console.log(position);
+
             if (position === -1) {
                 state.cart.push({product: payload.product, count: 1});
             } else {
@@ -121,7 +121,7 @@ export default new Vuex.Store({
         },
 
         removeFromCart(state, payload) {
-            let position = state.cart.findIndex(item => payload.id === item.product.id);
+            let position = state.cart.findIndex(item => payload.id === item.product.product.id);
             if (state.cart[position].count === 1)
                 state.cart.splice(position, 1);
             else
